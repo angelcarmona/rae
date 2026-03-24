@@ -1,0 +1,16 @@
+[build-system]
+requires = ['setuptools', 'wheel']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'rae'
+version = '0.9.1'
+description = 'Consulta el diccionario de la RAE'
+readme = 'README.md'
+authors = [{name = 'Ángel Carmona Galán'}]
+license = {text = 'MIT'}
+requires-python = '>=3.0'
+dependencies = ['requests']
+
+[project.urls]
+Homepage = 'https://github.com/angelcarmona/rae'
