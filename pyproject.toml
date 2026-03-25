@@ -9,7 +9,7 @@ description = 'Consulta el diccionario de la RAE'
 readme = 'README.md'
 license-files = ['LICENSE']
 authors = [{name = 'Ángel Carmona Galán'}]
-license = {text = 'MIT'}
+license = 'MIT'
 requires-python = '>=3.9'
 dependencies = ['requests', 'beautifulsoup4']
 
@@ -23,7 +23,6 @@ classifiers = [
     'Programming Language :: Python :: 3.12',
     'Programming Language :: Python :: 3.13',
     'Programming Language :: Python :: 3.14',
-    'License :: OSI Approved :: MIT License',
     'Operating System :: OS Independent',
     'Development Status :: 4 - Beta',
     'Intended Audience :: Developers',
