@@ -4,7 +4,7 @@ build-backend = 'setuptools.build_meta'
 
 [project]
 name = 'rae'
-version = '0.9.5'
+version = '0.9.6'
 description = 'Consulta el diccionario de la RAE (Real Academia Española)'
 readme = 'README.md'
 license-files = ['LICENSE']
@@ -34,3 +34,6 @@ classifiers = [
 
 [project.urls]
 Homepage = 'https://github.com/angelcarmona/rae'
+Documentation = 'https://angelcarmona.com/rae'
+Repository = 'https://github.com/angelcarmona/rae'
+Issues = 'https://github.com/angelcarmona/rae/issues'

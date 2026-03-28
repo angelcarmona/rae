@@ -1,9 +1,10 @@
 # rae
-
 Consulta el diccionario de la RAE (Real Academia Española)
 
-## Ejemplo
+## Documentación
+[https://angelcarmona.com/rae](https://angelcarmona.com/rae)
 
+## Ejemplo
 ```python
 import rae
 
