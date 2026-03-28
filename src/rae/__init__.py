@@ -66,7 +66,7 @@ def _get_words(url):
         visited.add(url)
         soup = _fetch_soup(url)
 
-        for a in soup.select('div.u-grid.u-gap-y-3 article h3 a[href]'):
+        for a in soup.select('div.u-grid.u-gap-y-3 article h3'):
             word = a.get('data-eti') or a.get_text(strip=True)
             words.append(word)
 
@@ -175,5 +175,22 @@ def contains(substring):
     '''
     try:
         return _get_words(f'{BASE_URL}/{substring}?m=33')
+    except requests.exceptions.RequestException:
+        return None
+
+
+def anagrams(word):
+    '''
+    Return all anagrams of the given word present in the RAE dictionary.
+
+    Args:
+        word (str): Word to search anagrams for.
+
+    Returns:
+        list[str] | None: List of anagrams found in the dictionary,
+        or None if request fails.
+    '''
+    try:
+        return _get_words(f'{BASE_URL}/{word}?m=anagram')
     except requests.exceptions.RequestException:
         return None

@@ -47,6 +47,9 @@
             <li>
                     <a class="function" href="#contains">contains</a>
             </li>
+            <li>
+                    <a class="function" href="#anagrams">anagrams</a>
+            </li>
     </ul>
 
 
@@ -141,7 +144,7 @@ Real Academia Española dictionary</p>
 </span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>        <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>
-</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;div.u-grid.u-gap-y-3 article h3 a[href]&#39;</span><span class="p">):</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;div.u-grid.u-gap-y-3 article h3&#39;</span><span class="p">):</span>
 </span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>            <span class="n">word</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data-eti&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">a</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>            <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>
@@ -252,6 +255,23 @@ Real Academia Española dictionary</p>
 </span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">substring</span><span class="si">}</span><span class="s1">?m=33&#39;</span><span class="p">)</span>
 </span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
 </span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a>        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="L-180"><a href="#L-180"><span class="linenos">180</span></a>
+</span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a>
+</span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a><span class="k">def</span> <span class="nf">anagrams</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+</span><span id="L-183"><a href="#L-183"><span class="linenos">183</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a><span class="sd">    Return all anagrams of the given word present in the RAE dictionary.</span>
+</span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a>
+</span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a><span class="sd">    Args:</span>
+</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a><span class="sd">        word (str): Word to search anagrams for.</span>
+</span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a>
+</span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a><span class="sd">    Returns:</span>
+</span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a><span class="sd">        list[str] | None: List of anagrams found in the dictionary,</span>
+</span><span id="L-191"><a href="#L-191"><span class="linenos">191</span></a><span class="sd">        or None if request fails.</span>
+</span><span id="L-192"><a href="#L-192"><span class="linenos">192</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="L-193"><a href="#L-193"><span class="linenos">193</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s1">?m=anagram&#39;</span><span class="p">)</span>
+</span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a>        <span class="k">return</span> <span class="kc">None</span>
 </span></pre></div>
 
 
@@ -518,6 +538,47 @@ Real Academia Española dictionary</p>
 
 <p>Returns:
     list[str] | None: List of words that contain the substring,
+    or None if request fails.</p>
+</div>
+
+
+                </section>
+                <section id="anagrams">
+                            <input id="anagrams-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">anagrams</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">word</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="anagrams-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#anagrams"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="anagrams-183"><a href="#anagrams-183"><span class="linenos">183</span></a><span class="k">def</span> <span class="nf">anagrams</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+</span><span id="anagrams-184"><a href="#anagrams-184"><span class="linenos">184</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="anagrams-185"><a href="#anagrams-185"><span class="linenos">185</span></a><span class="sd">    Return all anagrams of the given word present in the RAE dictionary.</span>
+</span><span id="anagrams-186"><a href="#anagrams-186"><span class="linenos">186</span></a>
+</span><span id="anagrams-187"><a href="#anagrams-187"><span class="linenos">187</span></a><span class="sd">    Args:</span>
+</span><span id="anagrams-188"><a href="#anagrams-188"><span class="linenos">188</span></a><span class="sd">        word (str): Word to search anagrams for.</span>
+</span><span id="anagrams-189"><a href="#anagrams-189"><span class="linenos">189</span></a>
+</span><span id="anagrams-190"><a href="#anagrams-190"><span class="linenos">190</span></a><span class="sd">    Returns:</span>
+</span><span id="anagrams-191"><a href="#anagrams-191"><span class="linenos">191</span></a><span class="sd">        list[str] | None: List of anagrams found in the dictionary,</span>
+</span><span id="anagrams-192"><a href="#anagrams-192"><span class="linenos">192</span></a><span class="sd">        or None if request fails.</span>
+</span><span id="anagrams-193"><a href="#anagrams-193"><span class="linenos">193</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="anagrams-194"><a href="#anagrams-194"><span class="linenos">194</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="anagrams-195"><a href="#anagrams-195"><span class="linenos">195</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s1">?m=anagram&#39;</span><span class="p">)</span>
+</span><span id="anagrams-196"><a href="#anagrams-196"><span class="linenos">196</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="anagrams-197"><a href="#anagrams-197"><span class="linenos">197</span></a>        <span class="k">return</span> <span class="kc">None</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Return all anagrams of the given word present in the RAE dictionary.</p>
+
+<p>Args:
+    word (str): Word to search anagrams for.</p>
+
+<p>Returns:
+    list[str] | None: List of anagrams found in the dictionary,
     or None if request fails.</p>
 </div>
 
