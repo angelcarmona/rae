@@ -4,14 +4,14 @@ build-backend = 'setuptools.build_meta'
 
 [project]
 name = 'rae'
-version = '0.9.2'
-description = 'Consulta el diccionario de la RAE'
+version = '0.9.3'
+description = 'Consulta el diccionario de la RAE (Real Academia Española)'
 readme = 'README.md'
 license-files = ['LICENSE']
 authors = [{name = 'Ángel Carmona Galán'}]
 license = 'MIT'
 requires-python = '>=3.9'
-dependencies = ['requests', 'beautifulsoup4']
+dependencies = ['requests', 'beautifulsoup4', 'lxml']
 
 classifiers = [
     'Programming Language :: Python',
