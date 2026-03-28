@@ -4,7 +4,7 @@ build-backend = 'setuptools.build_meta'
 
 [project]
 name = 'rae'
-version = '0.9.7'
+version = '0.9.8'
 description = 'Consulta el diccionario de la RAE (Real Academia Española)'
 readme = 'README.md'
 license-files = ['LICENSE']

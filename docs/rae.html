@@ -50,6 +50,9 @@
             <li>
                     <a class="function" href="#anagrams">anagrams</a>
             </li>
+            <li>
+                    <a class="function" href="#abbreviations_and_symbols">abbreviations_and_symbols</a>
+            </li>
     </ul>
 
 
@@ -116,9 +119,9 @@ Real Academia Española dictionary</p>
 </span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>        <span class="n">definitions</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>        <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">article</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;li.j&#39;</span><span class="p">):</span>
 </span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>            <span class="n">item</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;div.c-definitions__item&#39;</span><span class="p">)</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">item</span><span class="p">:</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a>                <span class="k">continue</span>
-</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>            <span class="n">definitions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_clean_text</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>
+</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a>            <span class="k">if</span> <span class="n">item</span><span class="p">:</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>                <span class="n">definitions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_clean_text</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
 </span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a>
 </span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a>        <span class="n">articles</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
 </span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a>            <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
@@ -272,6 +275,49 @@ Real Academia Española dictionary</p>
 </span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s1">?m=anagram&#39;</span><span class="p">)</span>
 </span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
 </span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a>        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a>
+</span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a>
+</span><span id="L-199"><a href="#L-199"><span class="linenos">199</span></a><span class="k">def</span> <span class="nf">abbreviations_and_symbols</span><span class="p">():</span>
+</span><span id="L-200"><a href="#L-200"><span class="linenos">200</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="L-201"><a href="#L-201"><span class="linenos">201</span></a><span class="sd">    Retrieve abbreviations and symbols metadata from RAE.</span>
+</span><span id="L-202"><a href="#L-202"><span class="linenos">202</span></a>
+</span><span id="L-203"><a href="#L-203"><span class="linenos">203</span></a><span class="sd">    Returns:</span>
+</span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a><span class="sd">        dict | None: Dictionary with notes, abbreviations and symbols,</span>
+</span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a><span class="sd">        or None if request fails.</span>
+</span><span id="L-206"><a href="#L-206"><span class="linenos">206</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/contenido/abreviaturas-y-signos-empleados&#39;</span><span class="p">)</span>
+</span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a>
+</span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a>            <span class="s1">&#39;notes&#39;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="L-212"><a href="#L-212"><span class="linenos">212</span></a>            <span class="s1">&#39;abbreviations&#39;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a>            <span class="s1">&#39;symbols&#39;</span><span class="p">:</span> <span class="p">[]</span>
+</span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a>        <span class="p">}</span>
+</span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a>
+</span><span id="L-216"><a href="#L-216"><span class="linenos">216</span></a>        <span class="n">ul</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;content&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">)</span>
+</span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a>        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;notes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a>            <span class="n">_clean_text</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</span><span id="L-219"><a href="#L-219"><span class="linenos">219</span></a>            <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">ul</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-220"><a href="#L-220"><span class="linenos">220</span></a>        <span class="p">]</span>
+</span><span id="L-221"><a href="#L-221"><span class="linenos">221</span></a>
+</span><span id="L-222"><a href="#L-222"><span class="linenos">222</span></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;abbreviation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
+</span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a>            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
+</span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a>            <span class="n">value</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a>            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;abbreviations&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+</span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a>
+</span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a>        <span class="n">symbol_div</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;symbol&#39;</span><span class="p">)</span>
+</span><span id="L-230"><a href="#L-230"><span class="linenos">230</span></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">symbol_div</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</span><span id="L-231"><a href="#L-231"><span class="linenos">231</span></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
+</span><span id="L-232"><a href="#L-232"><span class="linenos">232</span></a>            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
+</span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a>            <span class="n">value</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="L-235"><a href="#L-235"><span class="linenos">235</span></a>            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;symbols&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+</span><span id="L-236"><a href="#L-236"><span class="linenos">236</span></a>
+</span><span id="L-237"><a href="#L-237"><span class="linenos">237</span></a>        <span class="k">return</span> <span class="n">data</span>
+</span><span id="L-238"><a href="#L-238"><span class="linenos">238</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="L-239"><a href="#L-239"><span class="linenos">239</span></a>        <span class="k">return</span> <span class="kc">None</span>
 </span></pre></div>
 
 
@@ -579,6 +625,70 @@ Real Academia Española dictionary</p>
 
 <p>Returns:
     list[str] | None: List of anagrams found in the dictionary,
+    or None if request fails.</p>
+</div>
+
+
+                </section>
+                <section id="abbreviations_and_symbols">
+                            <input id="abbreviations_and_symbols-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">abbreviations_and_symbols</span><span class="signature pdoc-code condensed">(<span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="abbreviations_and_symbols-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#abbreviations_and_symbols"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="abbreviations_and_symbols-200"><a href="#abbreviations_and_symbols-200"><span class="linenos">200</span></a><span class="k">def</span> <span class="nf">abbreviations_and_symbols</span><span class="p">():</span>
+</span><span id="abbreviations_and_symbols-201"><a href="#abbreviations_and_symbols-201"><span class="linenos">201</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="abbreviations_and_symbols-202"><a href="#abbreviations_and_symbols-202"><span class="linenos">202</span></a><span class="sd">    Retrieve abbreviations and symbols metadata from RAE.</span>
+</span><span id="abbreviations_and_symbols-203"><a href="#abbreviations_and_symbols-203"><span class="linenos">203</span></a>
+</span><span id="abbreviations_and_symbols-204"><a href="#abbreviations_and_symbols-204"><span class="linenos">204</span></a><span class="sd">    Returns:</span>
+</span><span id="abbreviations_and_symbols-205"><a href="#abbreviations_and_symbols-205"><span class="linenos">205</span></a><span class="sd">        dict | None: Dictionary with notes, abbreviations and symbols,</span>
+</span><span id="abbreviations_and_symbols-206"><a href="#abbreviations_and_symbols-206"><span class="linenos">206</span></a><span class="sd">        or None if request fails.</span>
+</span><span id="abbreviations_and_symbols-207"><a href="#abbreviations_and_symbols-207"><span class="linenos">207</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="abbreviations_and_symbols-208"><a href="#abbreviations_and_symbols-208"><span class="linenos">208</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="abbreviations_and_symbols-209"><a href="#abbreviations_and_symbols-209"><span class="linenos">209</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/contenido/abreviaturas-y-signos-empleados&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-210"><a href="#abbreviations_and_symbols-210"><span class="linenos">210</span></a>
+</span><span id="abbreviations_and_symbols-211"><a href="#abbreviations_and_symbols-211"><span class="linenos">211</span></a>        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="abbreviations_and_symbols-212"><a href="#abbreviations_and_symbols-212"><span class="linenos">212</span></a>            <span class="s1">&#39;notes&#39;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="abbreviations_and_symbols-213"><a href="#abbreviations_and_symbols-213"><span class="linenos">213</span></a>            <span class="s1">&#39;abbreviations&#39;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="abbreviations_and_symbols-214"><a href="#abbreviations_and_symbols-214"><span class="linenos">214</span></a>            <span class="s1">&#39;symbols&#39;</span><span class="p">:</span> <span class="p">[]</span>
+</span><span id="abbreviations_and_symbols-215"><a href="#abbreviations_and_symbols-215"><span class="linenos">215</span></a>        <span class="p">}</span>
+</span><span id="abbreviations_and_symbols-216"><a href="#abbreviations_and_symbols-216"><span class="linenos">216</span></a>
+</span><span id="abbreviations_and_symbols-217"><a href="#abbreviations_and_symbols-217"><span class="linenos">217</span></a>        <span class="n">ul</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;content&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-218"><a href="#abbreviations_and_symbols-218"><span class="linenos">218</span></a>        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;notes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="abbreviations_and_symbols-219"><a href="#abbreviations_and_symbols-219"><span class="linenos">219</span></a>            <span class="n">_clean_text</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-220"><a href="#abbreviations_and_symbols-220"><span class="linenos">220</span></a>            <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">ul</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-221"><a href="#abbreviations_and_symbols-221"><span class="linenos">221</span></a>        <span class="p">]</span>
+</span><span id="abbreviations_and_symbols-222"><a href="#abbreviations_and_symbols-222"><span class="linenos">222</span></a>
+</span><span id="abbreviations_and_symbols-223"><a href="#abbreviations_and_symbols-223"><span class="linenos">223</span></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;abbreviation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-224"><a href="#abbreviations_and_symbols-224"><span class="linenos">224</span></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
+</span><span id="abbreviations_and_symbols-225"><a href="#abbreviations_and_symbols-225"><span class="linenos">225</span></a>            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-226"><a href="#abbreviations_and_symbols-226"><span class="linenos">226</span></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="abbreviations_and_symbols-227"><a href="#abbreviations_and_symbols-227"><span class="linenos">227</span></a>            <span class="n">value</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="abbreviations_and_symbols-228"><a href="#abbreviations_and_symbols-228"><span class="linenos">228</span></a>            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;abbreviations&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+</span><span id="abbreviations_and_symbols-229"><a href="#abbreviations_and_symbols-229"><span class="linenos">229</span></a>
+</span><span id="abbreviations_and_symbols-230"><a href="#abbreviations_and_symbols-230"><span class="linenos">230</span></a>        <span class="n">symbol_div</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;symbol&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-231"><a href="#abbreviations_and_symbols-231"><span class="linenos">231</span></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">symbol_div</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-232"><a href="#abbreviations_and_symbols-232"><span class="linenos">232</span></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
+</span><span id="abbreviations_and_symbols-233"><a href="#abbreviations_and_symbols-233"><span class="linenos">233</span></a>            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-234"><a href="#abbreviations_and_symbols-234"><span class="linenos">234</span></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="abbreviations_and_symbols-235"><a href="#abbreviations_and_symbols-235"><span class="linenos">235</span></a>            <span class="n">value</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="abbreviations_and_symbols-236"><a href="#abbreviations_and_symbols-236"><span class="linenos">236</span></a>            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;symbols&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+</span><span id="abbreviations_and_symbols-237"><a href="#abbreviations_and_symbols-237"><span class="linenos">237</span></a>
+</span><span id="abbreviations_and_symbols-238"><a href="#abbreviations_and_symbols-238"><span class="linenos">238</span></a>        <span class="k">return</span> <span class="n">data</span>
+</span><span id="abbreviations_and_symbols-239"><a href="#abbreviations_and_symbols-239"><span class="linenos">239</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="abbreviations_and_symbols-240"><a href="#abbreviations_and_symbols-240"><span class="linenos">240</span></a>        <span class="k">return</span> <span class="kc">None</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Retrieve abbreviations and symbols metadata from RAE.</p>
+
+<p>Returns:
+    dict | None: Dictionary with notes, abbreviations and symbols,
     or None if request fails.</p>
 </div>
 

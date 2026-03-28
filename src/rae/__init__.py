@@ -38,9 +38,9 @@ def _parse_articles(soup):
         definitions = []
         for li in article.select('li.j'):
             item = li.select_one('div.c-definitions__item')
-            if not item:
-                continue
-            definitions.append(_clean_text(item))
+
+            if item:
+                definitions.append(_clean_text(item))
 
         articles.append({
             'title': title,
@@ -192,5 +192,48 @@ def anagrams(word):
     '''
     try:
         return _get_words(f'{BASE_URL}/{word}?m=anagram')
+    except requests.exceptions.RequestException:
+        return None
+
+
+def abbreviations_and_symbols():
+    '''
+    Retrieve abbreviations and symbols metadata from RAE.
+
+    Returns:
+        dict | None: Dictionary with notes, abbreviations and symbols,
+        or None if request fails.
+    '''
+    try:
+        soup = _fetch_soup(f'{BASE_URL}/contenido/abreviaturas-y-signos-empleados')
+
+        data = {
+            'notes': [],
+            'abbreviations': [],
+            'symbols': []
+        }
+
+        ul = soup.find('div', id='content').find('ul')
+        data['notes'] = [
+            _clean_text(li)
+            for li in ul.find_all('li', recursive=False)
+        ]
+
+        table = soup.find('div', id='abbreviation').find('table')
+        for row in table.find_all('tr'):
+            cells = row.find_all('td')
+            key = _clean_text(cells[0])
+            value = _clean_text(cells[1])
+            data['abbreviations'].append((key, value))
+
+        symbol_div = soup.find('div', id='symbol')
+        table = symbol_div.find('table')
+        for row in table.find_all('tr'):
+            cells = row.find_all('td')
+            key = _clean_text(cells[0])
+            value = _clean_text(cells[1])
+            data['symbols'].append((key, value))
+
+        return data
     except requests.exceptions.RequestException:
         return None
