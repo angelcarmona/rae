@@ -51,6 +51,30 @@ def _parse_articles(soup):
     return articles
 
 
+def _find_next_words_page(soup):
+    for a in soup.select('nav.c-pagination a.c-pagination__link[href]'):
+        if a.get_text(strip=True) == 'Siguiente':
+            return BASE_URL + a['href']
+    return None
+
+
+def _get_words(url):
+    words = []
+    visited = set()
+
+    while url and url not in visited:
+        visited.add(url)
+        soup = _fetch_soup(url)
+
+        for a in soup.select('div.u-grid.u-gap-y-3 article h3 a[href]'):
+            word = a.get('data-eti') or a.get_text(strip=True)
+            words.append(word)
+
+        url = _find_next_words_page(soup)
+
+    return words
+
+
 def word_of_the_day():
     '''
     Retrieve today's word from RAE and return its parsed entries.
@@ -103,3 +127,53 @@ def random_word():
     except requests.exceptions.RequestException:
         return None
 
+
+def words_starting_with(prefix):
+    '''
+    Return all words from the RAE dictionary that start with the given prefix.
+
+    Args:
+        prefix (str): Prefix to search.
+
+    Returns:
+        list[str] | None: List of words that start with the prefix,
+        or None if request fails.
+    '''
+    try:
+        return _get_words(f'{BASE_URL}/{prefix}?m=31')
+    except requests.exceptions.RequestException:
+        return None
+
+
+def words_ending_with(suffix):
+    '''
+    Return all words from the RAE dictionary that end with the given suffix.
+
+    Args:
+        suffix (str): Suffix to search.
+
+    Returns:
+        list[str] | None: List of words that end with the suffix,
+        or None if request fails.
+    '''
+    try:
+        return _get_words(f'{BASE_URL}/{suffix}?m=32')
+    except requests.exceptions.RequestException:
+        return None
+
+
+def contains(substring):
+    '''
+    Return all words from the RAE dictionary that contain the given substring.
+
+    Args:
+        substring (str): Substring to search.
+
+    Returns:
+        list[str] | None: List of words that contain the substring,
+        or None if request fails.
+    '''
+    try:
+        return _get_words(f'{BASE_URL}/{substring}?m=33')
+    except requests.exceptions.RequestException:
+        return None
