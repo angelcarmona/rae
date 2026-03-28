@@ -1,6 +1,6 @@
 # rae
 
-Consulta el diccionario de la RAE.
+Consulta el diccionario de la RAE (Real Academia Española)
 
 ## Ejemplo
 
