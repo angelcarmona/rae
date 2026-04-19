@@ -69,10 +69,10 @@
                     <h1 class="modulename">
 rae    </h1>
 
-                        <div class="docstring"><p>RAE dictionary client</p>
+                        <div class="docstring"><p>Cliente para el diccionario de la RAE (<a href="https://www.rae.es">https://www.rae.es</a>)</p>
 
-<p>Provides utilities to fetch and parse entries from the
-Real Academia Española dictionary</p>
+<p>Proporciona funciones para consultar entradas del diccionario de la
+Real Academia Española</p>
 </div>
 
                         <input id="mod-rae-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -80,10 +80,10 @@ Real Academia Española dictionary</p>
                         <label class="view-source-button" for="mod-rae-view-source"><span>View Source</span></label>
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a><span class="sd">RAE dictionary client</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a><span class="sd">Cliente para el diccionario de la RAE (https://www.rae.es)</span>
 </span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a>
-</span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="sd">Provides utilities to fetch and parse entries from the</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="sd">Real Academia Española dictionary</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="sd">Proporciona funciones para consultar entradas del diccionario de la</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="sd">Real Academia Española</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a><span class="sd">&#39;&#39;&#39;</span>
 </span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a>
 </span><span id="L-8"><a href="#L-8"><span class="linenos">  8</span></a><span class="kn">import</span> <span class="nn">requests</span>
@@ -158,11 +158,11 @@ Real Academia Española dictionary</p>
 </span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>
 </span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="k">def</span> <span class="nf">word_of_the_day</span><span class="p">():</span>
 </span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a><span class="sd">    Retrieve today&#39;s word from RAE and return its parsed entries.</span>
+</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a><span class="sd">    Devuelve la palabra del día en https://www.rae.es</span>
 </span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>
 </span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a><span class="sd">    Returns:</span>
-</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a><span class="sd">        list[dict] | None: Parsed dictionary entries for the word of the day,</span>
-</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="sd">        or None if request fails.</span>
+</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a><span class="sd">        list[dict] | None: Entrada del diccionario para la palabra del día o</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="sd">        None si la petición falla.</span>
 </span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="sd">    &#39;&#39;&#39;</span>
 </span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a>    <span class="k">try</span><span class="p">:</span>
 </span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="n">BASE_URL</span><span class="p">)</span>
@@ -174,14 +174,14 @@ Real Academia Española dictionary</p>
 </span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>
 </span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a><span class="k">def</span> <span class="nf">search_by_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
 </span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="sd">    Search a word in the RAE dictionary.</span>
+</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="sd">    Busca una palabra en el diccionario de la RAE.</span>
 </span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>
 </span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a><span class="sd">    Args:</span>
-</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a><span class="sd">        word (str): Word to search.</span>
+</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a><span class="sd">        word (str): Palabra a buscar.</span>
 </span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>
 </span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a><span class="sd">    Returns:</span>
-</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a><span class="sd">        list[dict] | None: List of articles with title, intro and definitions,</span>
-</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a><span class="sd">        or None if request fails.</span>
+</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a><span class="sd">        list[dict] | None: Lista de artículos con título, introducción y</span>
+</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a><span class="sd">        definiciones o None si la petición falla.</span>
 </span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a><span class="sd">    &#39;&#39;&#39;</span>
 </span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>    <span class="k">try</span><span class="p">:</span>
 </span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -196,11 +196,11 @@ Real Academia Española dictionary</p>
 </span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>
 </span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a><span class="k">def</span> <span class="nf">random_word</span><span class="p">():</span>
 </span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a><span class="sd">    Retrieve a random word from RAE and return its parsed entries.</span>
+</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a><span class="sd">    Obtiene una palabra aleatoria de la RAE.</span>
 </span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a>
 </span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a><span class="sd">    Returns:</span>
-</span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a><span class="sd">        list[dict] | None: Parsed dictionary entries for a random word,</span>
-</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a><span class="sd">        or None if request fails.</span>
+</span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a><span class="sd">        list[dict] | None: Entrada del diccionario para una palabra aleatoria o</span>
+</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a><span class="sd">        None si la petición falla.</span>
 </span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a><span class="sd">    &#39;&#39;&#39;</span>
 </span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a>    <span class="k">try</span><span class="p">:</span>
 </span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/?m=random&#39;</span><span class="p">)</span>
@@ -211,113 +211,117 @@ Real Academia Española dictionary</p>
 </span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>
 </span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a><span class="k">def</span> <span class="nf">words_starting_with</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
 </span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a><span class="sd">    Return all words from the RAE dictionary that start with the given prefix.</span>
-</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>
-</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a><span class="sd">    Args:</span>
-</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a><span class="sd">        prefix (str): Prefix to search.</span>
-</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a>
-</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a><span class="sd">    Returns:</span>
-</span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a><span class="sd">        list[str] | None: List of words that start with the prefix,</span>
-</span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a><span class="sd">        or None if request fails.</span>
-</span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="L-142"><a href="#L-142"><span class="linenos">142</span></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">?m=31&#39;</span><span class="p">)</span>
-</span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
-</span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a>        <span class="k">return</span> <span class="kc">None</span>
-</span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>
+</span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a><span class="sd">    Devuelve todas las palabras del diccionario de la RAE que empiezan por el</span>
+</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a><span class="sd">    prefijo proporcionado.</span>
+</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a>
+</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a><span class="sd">    Args:</span>
+</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a><span class="sd">        prefix (str): Prefijo a buscar.</span>
+</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a>
+</span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a><span class="sd">    Returns:</span>
+</span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a><span class="sd">        list[str] | None: Lista de palabras que empiezan por el prefijo o None</span>
+</span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a><span class="sd">        si la petición falla.</span>
+</span><span id="L-142"><a href="#L-142"><span class="linenos">142</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">?m=31&#39;</span><span class="p">)</span>
+</span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>        <span class="k">return</span> <span class="kc">None</span>
 </span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a>
-</span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a><span class="k">def</span> <span class="nf">words_ending_with</span><span class="p">(</span><span class="n">suffix</span><span class="p">):</span>
-</span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a><span class="sd">    Return all words from the RAE dictionary that end with the given suffix.</span>
-</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a>
-</span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a><span class="sd">    Args:</span>
-</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a><span class="sd">        suffix (str): Suffix to search.</span>
-</span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a>
-</span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a><span class="sd">    Returns:</span>
-</span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a><span class="sd">        list[str] | None: List of words that end with the suffix,</span>
-</span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a><span class="sd">        or None if request fails.</span>
-</span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">suffix</span><span class="si">}</span><span class="s1">?m=32&#39;</span><span class="p">)</span>
-</span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
-</span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a>        <span class="k">return</span> <span class="kc">None</span>
-</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a>
-</span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a>
-</span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a><span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="n">substring</span><span class="p">):</span>
-</span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a><span class="sd">    Return all words from the RAE dictionary that contain the given substring.</span>
-</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a>
-</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a><span class="sd">    Args:</span>
-</span><span id="L-170"><a href="#L-170"><span class="linenos">170</span></a><span class="sd">        substring (str): Substring to search.</span>
+</span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a>
+</span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a><span class="k">def</span> <span class="nf">words_ending_with</span><span class="p">(</span><span class="n">suffix</span><span class="p">):</span>
+</span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a><span class="sd">    Devuelve todas las palabras del diccionario de la RAE que terminan con el</span>
+</span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a><span class="sd">    sufijo proporcionado.</span>
+</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a>
+</span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a><span class="sd">    Args:</span>
+</span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a><span class="sd">        suffix (str): Sufijo a buscar.</span>
+</span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a>
+</span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a><span class="sd">    Returns:</span>
+</span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a><span class="sd">        list[str] | None: Lista de palabras que terminan con el sufijo o None si</span>
+</span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a><span class="sd">        la petición falla.</span>
+</span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">suffix</span><span class="si">}</span><span class="s1">?m=32&#39;</span><span class="p">)</span>
+</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a>        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a>
+</span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a>
+</span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a><span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="n">substring</span><span class="p">):</span>
+</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a><span class="sd">    Devuelve todas las palabras del diccionario de la RAE que contienen la</span>
+</span><span id="L-170"><a href="#L-170"><span class="linenos">170</span></a><span class="sd">    subcadena proporcionada.</span>
 </span><span id="L-171"><a href="#L-171"><span class="linenos">171</span></a>
-</span><span id="L-172"><a href="#L-172"><span class="linenos">172</span></a><span class="sd">    Returns:</span>
-</span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a><span class="sd">        list[str] | None: List of words that contain the substring,</span>
-</span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a><span class="sd">        or None if request fails.</span>
-</span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">substring</span><span class="si">}</span><span class="s1">?m=33&#39;</span><span class="p">)</span>
-</span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
-</span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a>        <span class="k">return</span> <span class="kc">None</span>
-</span><span id="L-180"><a href="#L-180"><span class="linenos">180</span></a>
-</span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a>
-</span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a><span class="k">def</span> <span class="nf">anagrams</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
-</span><span id="L-183"><a href="#L-183"><span class="linenos">183</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a><span class="sd">    Return all anagrams of the given word present in the RAE dictionary.</span>
-</span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a>
-</span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a><span class="sd">    Args:</span>
-</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a><span class="sd">        word (str): Word to search anagrams for.</span>
-</span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a>
-</span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a><span class="sd">    Returns:</span>
-</span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a><span class="sd">        list[str] | None: List of anagrams found in the dictionary,</span>
-</span><span id="L-191"><a href="#L-191"><span class="linenos">191</span></a><span class="sd">        or None if request fails.</span>
-</span><span id="L-192"><a href="#L-192"><span class="linenos">192</span></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="L-193"><a href="#L-193"><span class="linenos">193</span></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s1">?m=anagram&#39;</span><span class="p">)</span>
-</span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
-</span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a>        <span class="k">return</span> <span class="kc">None</span>
-</span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a>
-</span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a>
-</span><span id="L-199"><a href="#L-199"><span class="linenos">199</span></a><span class="k">def</span> <span class="nf">abbreviations_and_symbols</span><span class="p">():</span>
-</span><span id="L-200"><a href="#L-200"><span class="linenos">200</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="L-201"><a href="#L-201"><span class="linenos">201</span></a><span class="sd">    Retrieve abbreviations and symbols metadata from RAE.</span>
+</span><span id="L-172"><a href="#L-172"><span class="linenos">172</span></a><span class="sd">    Args:</span>
+</span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a><span class="sd">        substring (str): Subcadena a buscar.</span>
+</span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a>
+</span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a><span class="sd">    Returns:</span>
+</span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a><span class="sd">        list[str] | None: Lista de palabras que contienen la subcadena o None si</span>
+</span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a><span class="sd">        la petición falla.</span>
+</span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="L-180"><a href="#L-180"><span class="linenos">180</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">substring</span><span class="si">}</span><span class="s1">?m=33&#39;</span><span class="p">)</span>
+</span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a>        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="L-183"><a href="#L-183"><span class="linenos">183</span></a>
+</span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a>
+</span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a><span class="k">def</span> <span class="nf">anagrams</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+</span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a><span class="sd">    Devuelve todos los anagramas de la palabra dada presentes en el diccionario</span>
+</span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a><span class="sd">    de la RAE.</span>
+</span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a>
+</span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a><span class="sd">    Args:</span>
+</span><span id="L-191"><a href="#L-191"><span class="linenos">191</span></a><span class="sd">        word (str): Palabra para la que buscar anagramas.</span>
+</span><span id="L-192"><a href="#L-192"><span class="linenos">192</span></a>
+</span><span id="L-193"><a href="#L-193"><span class="linenos">193</span></a><span class="sd">    Returns:</span>
+</span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a><span class="sd">        list[str] | None: Lista de anagramas encontrados en el diccionario o</span>
+</span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a><span class="sd">        None si la petición falla.</span>
+</span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s1">?m=anagram&#39;</span><span class="p">)</span>
+</span><span id="L-199"><a href="#L-199"><span class="linenos">199</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="L-200"><a href="#L-200"><span class="linenos">200</span></a>        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="L-201"><a href="#L-201"><span class="linenos">201</span></a>
 </span><span id="L-202"><a href="#L-202"><span class="linenos">202</span></a>
-</span><span id="L-203"><a href="#L-203"><span class="linenos">203</span></a><span class="sd">    Returns:</span>
-</span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a><span class="sd">        dict | None: Dictionary with notes, abbreviations and symbols,</span>
-</span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a><span class="sd">        or None if request fails.</span>
-</span><span id="L-206"><a href="#L-206"><span class="linenos">206</span></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/contenido/abreviaturas-y-signos-empleados&#39;</span><span class="p">)</span>
-</span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a>
-</span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a>            <span class="s1">&#39;notes&#39;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="L-212"><a href="#L-212"><span class="linenos">212</span></a>            <span class="s1">&#39;abbreviations&#39;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a>            <span class="s1">&#39;symbols&#39;</span><span class="p">:</span> <span class="p">[]</span>
-</span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a>        <span class="p">}</span>
-</span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a>
-</span><span id="L-216"><a href="#L-216"><span class="linenos">216</span></a>        <span class="n">ul</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;content&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">)</span>
-</span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a>        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;notes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a>            <span class="n">_clean_text</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
-</span><span id="L-219"><a href="#L-219"><span class="linenos">219</span></a>            <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">ul</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="L-220"><a href="#L-220"><span class="linenos">220</span></a>        <span class="p">]</span>
-</span><span id="L-221"><a href="#L-221"><span class="linenos">221</span></a>
-</span><span id="L-222"><a href="#L-222"><span class="linenos">222</span></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;abbreviation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
-</span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
-</span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a>            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
-</span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a>            <span class="n">value</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a>            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;abbreviations&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
-</span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a>
-</span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a>        <span class="n">symbol_div</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;symbol&#39;</span><span class="p">)</span>
-</span><span id="L-230"><a href="#L-230"><span class="linenos">230</span></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">symbol_div</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
-</span><span id="L-231"><a href="#L-231"><span class="linenos">231</span></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
-</span><span id="L-232"><a href="#L-232"><span class="linenos">232</span></a>            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
-</span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a>            <span class="n">value</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</span><span id="L-235"><a href="#L-235"><span class="linenos">235</span></a>            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;symbols&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
-</span><span id="L-236"><a href="#L-236"><span class="linenos">236</span></a>
-</span><span id="L-237"><a href="#L-237"><span class="linenos">237</span></a>        <span class="k">return</span> <span class="n">data</span>
-</span><span id="L-238"><a href="#L-238"><span class="linenos">238</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
-</span><span id="L-239"><a href="#L-239"><span class="linenos">239</span></a>        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="L-203"><a href="#L-203"><span class="linenos">203</span></a><span class="k">def</span> <span class="nf">abbreviations_and_symbols</span><span class="p">():</span>
+</span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a><span class="sd">    Obtiene abreviaturas y símbolos de la RAE.</span>
+</span><span id="L-206"><a href="#L-206"><span class="linenos">206</span></a>
+</span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a><span class="sd">    Returns:</span>
+</span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a><span class="sd">        dict | None: Diccionario con notas, abreviaturas y símbolos o None si la</span>
+</span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a><span class="sd">        petición falla.</span>
+</span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="L-212"><a href="#L-212"><span class="linenos">212</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/contenido/abreviaturas-y-signos-empleados&#39;</span><span class="p">)</span>
+</span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a>
+</span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a>        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a>            <span class="s1">&#39;notes&#39;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="L-216"><a href="#L-216"><span class="linenos">216</span></a>            <span class="s1">&#39;abbreviations&#39;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a>            <span class="s1">&#39;symbols&#39;</span><span class="p">:</span> <span class="p">[]</span>
+</span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a>        <span class="p">}</span>
+</span><span id="L-219"><a href="#L-219"><span class="linenos">219</span></a>
+</span><span id="L-220"><a href="#L-220"><span class="linenos">220</span></a>        <span class="n">ul</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;content&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">)</span>
+</span><span id="L-221"><a href="#L-221"><span class="linenos">221</span></a>        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;notes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="L-222"><a href="#L-222"><span class="linenos">222</span></a>            <span class="n">_clean_text</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a>            <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">ul</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a>        <span class="p">]</span>
+</span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a>
+</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;abbreviation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
+</span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a>            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
+</span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="L-230"><a href="#L-230"><span class="linenos">230</span></a>            <span class="n">value</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="L-231"><a href="#L-231"><span class="linenos">231</span></a>            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;abbreviations&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+</span><span id="L-232"><a href="#L-232"><span class="linenos">232</span></a>
+</span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>        <span class="n">symbol_div</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;symbol&#39;</span><span class="p">)</span>
+</span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">symbol_div</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</span><span id="L-235"><a href="#L-235"><span class="linenos">235</span></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
+</span><span id="L-236"><a href="#L-236"><span class="linenos">236</span></a>            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
+</span><span id="L-237"><a href="#L-237"><span class="linenos">237</span></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="L-238"><a href="#L-238"><span class="linenos">238</span></a>            <span class="n">value</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="L-239"><a href="#L-239"><span class="linenos">239</span></a>            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;symbols&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+</span><span id="L-240"><a href="#L-240"><span class="linenos">240</span></a>
+</span><span id="L-241"><a href="#L-241"><span class="linenos">241</span></a>        <span class="k">return</span> <span class="n">data</span>
+</span><span id="L-242"><a href="#L-242"><span class="linenos">242</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="L-243"><a href="#L-243"><span class="linenos">243</span></a>        <span class="k">return</span> <span class="kc">None</span>
 </span></pre></div>
 
 
@@ -360,11 +364,11 @@ Real Academia Española dictionary</p>
     <a class="headerlink" href="#word_of_the_day"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="word_of_the_day-79"><a href="#word_of_the_day-79"><span class="linenos">79</span></a><span class="k">def</span> <span class="nf">word_of_the_day</span><span class="p">():</span>
 </span><span id="word_of_the_day-80"><a href="#word_of_the_day-80"><span class="linenos">80</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="word_of_the_day-81"><a href="#word_of_the_day-81"><span class="linenos">81</span></a><span class="sd">    Retrieve today&#39;s word from RAE and return its parsed entries.</span>
+</span><span id="word_of_the_day-81"><a href="#word_of_the_day-81"><span class="linenos">81</span></a><span class="sd">    Devuelve la palabra del día en https://www.rae.es</span>
 </span><span id="word_of_the_day-82"><a href="#word_of_the_day-82"><span class="linenos">82</span></a>
 </span><span id="word_of_the_day-83"><a href="#word_of_the_day-83"><span class="linenos">83</span></a><span class="sd">    Returns:</span>
-</span><span id="word_of_the_day-84"><a href="#word_of_the_day-84"><span class="linenos">84</span></a><span class="sd">        list[dict] | None: Parsed dictionary entries for the word of the day,</span>
-</span><span id="word_of_the_day-85"><a href="#word_of_the_day-85"><span class="linenos">85</span></a><span class="sd">        or None if request fails.</span>
+</span><span id="word_of_the_day-84"><a href="#word_of_the_day-84"><span class="linenos">84</span></a><span class="sd">        list[dict] | None: Entrada del diccionario para la palabra del día o</span>
+</span><span id="word_of_the_day-85"><a href="#word_of_the_day-85"><span class="linenos">85</span></a><span class="sd">        None si la petición falla.</span>
 </span><span id="word_of_the_day-86"><a href="#word_of_the_day-86"><span class="linenos">86</span></a><span class="sd">    &#39;&#39;&#39;</span>
 </span><span id="word_of_the_day-87"><a href="#word_of_the_day-87"><span class="linenos">87</span></a>    <span class="k">try</span><span class="p">:</span>
 </span><span id="word_of_the_day-88"><a href="#word_of_the_day-88"><span class="linenos">88</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="n">BASE_URL</span><span class="p">)</span>
@@ -375,11 +379,11 @@ Real Academia Española dictionary</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Retrieve today's word from RAE and return its parsed entries.</p>
+            <div class="docstring"><p>Devuelve la palabra del día en <a href="https://www.rae.es">https://www.rae.es</a></p>
 
 <p>Returns:
-    list[dict] | None: Parsed dictionary entries for the word of the day,
-    or None if request fails.</p>
+    list[dict] | None: Entrada del diccionario para la palabra del día o
+    None si la petición falla.</p>
 </div>
 
 
@@ -397,14 +401,14 @@ Real Academia Española dictionary</p>
     <a class="headerlink" href="#search_by_word"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="search_by_word-95"><a href="#search_by_word-95"><span class="linenos"> 95</span></a><span class="k">def</span> <span class="nf">search_by_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
 </span><span id="search_by_word-96"><a href="#search_by_word-96"><span class="linenos"> 96</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="search_by_word-97"><a href="#search_by_word-97"><span class="linenos"> 97</span></a><span class="sd">    Search a word in the RAE dictionary.</span>
+</span><span id="search_by_word-97"><a href="#search_by_word-97"><span class="linenos"> 97</span></a><span class="sd">    Busca una palabra en el diccionario de la RAE.</span>
 </span><span id="search_by_word-98"><a href="#search_by_word-98"><span class="linenos"> 98</span></a>
 </span><span id="search_by_word-99"><a href="#search_by_word-99"><span class="linenos"> 99</span></a><span class="sd">    Args:</span>
-</span><span id="search_by_word-100"><a href="#search_by_word-100"><span class="linenos">100</span></a><span class="sd">        word (str): Word to search.</span>
+</span><span id="search_by_word-100"><a href="#search_by_word-100"><span class="linenos">100</span></a><span class="sd">        word (str): Palabra a buscar.</span>
 </span><span id="search_by_word-101"><a href="#search_by_word-101"><span class="linenos">101</span></a>
 </span><span id="search_by_word-102"><a href="#search_by_word-102"><span class="linenos">102</span></a><span class="sd">    Returns:</span>
-</span><span id="search_by_word-103"><a href="#search_by_word-103"><span class="linenos">103</span></a><span class="sd">        list[dict] | None: List of articles with title, intro and definitions,</span>
-</span><span id="search_by_word-104"><a href="#search_by_word-104"><span class="linenos">104</span></a><span class="sd">        or None if request fails.</span>
+</span><span id="search_by_word-103"><a href="#search_by_word-103"><span class="linenos">103</span></a><span class="sd">        list[dict] | None: Lista de artículos con título, introducción y</span>
+</span><span id="search_by_word-104"><a href="#search_by_word-104"><span class="linenos">104</span></a><span class="sd">        definiciones o None si la petición falla.</span>
 </span><span id="search_by_word-105"><a href="#search_by_word-105"><span class="linenos">105</span></a><span class="sd">    &#39;&#39;&#39;</span>
 </span><span id="search_by_word-106"><a href="#search_by_word-106"><span class="linenos">106</span></a>    <span class="k">try</span><span class="p">:</span>
 </span><span id="search_by_word-107"><a href="#search_by_word-107"><span class="linenos">107</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -418,14 +422,14 @@ Real Academia Española dictionary</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Search a word in the RAE dictionary.</p>
+            <div class="docstring"><p>Busca una palabra en el diccionario de la RAE.</p>
 
 <p>Args:
-    word (str): Word to search.</p>
+    word (str): Palabra a buscar.</p>
 
 <p>Returns:
-    list[dict] | None: List of articles with title, intro and definitions,
-    or None if request fails.</p>
+    list[dict] | None: Lista de artículos con título, introducción y
+    definiciones o None si la petición falla.</p>
 </div>
 
 
@@ -443,11 +447,11 @@ Real Academia Española dictionary</p>
     <a class="headerlink" href="#random_word"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="random_word-117"><a href="#random_word-117"><span class="linenos">117</span></a><span class="k">def</span> <span class="nf">random_word</span><span class="p">():</span>
 </span><span id="random_word-118"><a href="#random_word-118"><span class="linenos">118</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="random_word-119"><a href="#random_word-119"><span class="linenos">119</span></a><span class="sd">    Retrieve a random word from RAE and return its parsed entries.</span>
+</span><span id="random_word-119"><a href="#random_word-119"><span class="linenos">119</span></a><span class="sd">    Obtiene una palabra aleatoria de la RAE.</span>
 </span><span id="random_word-120"><a href="#random_word-120"><span class="linenos">120</span></a>
 </span><span id="random_word-121"><a href="#random_word-121"><span class="linenos">121</span></a><span class="sd">    Returns:</span>
-</span><span id="random_word-122"><a href="#random_word-122"><span class="linenos">122</span></a><span class="sd">        list[dict] | None: Parsed dictionary entries for a random word,</span>
-</span><span id="random_word-123"><a href="#random_word-123"><span class="linenos">123</span></a><span class="sd">        or None if request fails.</span>
+</span><span id="random_word-122"><a href="#random_word-122"><span class="linenos">122</span></a><span class="sd">        list[dict] | None: Entrada del diccionario para una palabra aleatoria o</span>
+</span><span id="random_word-123"><a href="#random_word-123"><span class="linenos">123</span></a><span class="sd">        None si la petición falla.</span>
 </span><span id="random_word-124"><a href="#random_word-124"><span class="linenos">124</span></a><span class="sd">    &#39;&#39;&#39;</span>
 </span><span id="random_word-125"><a href="#random_word-125"><span class="linenos">125</span></a>    <span class="k">try</span><span class="p">:</span>
 </span><span id="random_word-126"><a href="#random_word-126"><span class="linenos">126</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/?m=random&#39;</span><span class="p">)</span>
@@ -457,11 +461,11 @@ Real Academia Española dictionary</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Retrieve a random word from RAE and return its parsed entries.</p>
+            <div class="docstring"><p>Obtiene una palabra aleatoria de la RAE.</p>
 
 <p>Returns:
-    list[dict] | None: Parsed dictionary entries for a random word,
-    or None if request fails.</p>
+    list[dict] | None: Entrada del diccionario para una palabra aleatoria o
+    None si la petición falla.</p>
 </div>
 
 
@@ -479,30 +483,32 @@ Real Academia Española dictionary</p>
     <a class="headerlink" href="#words_starting_with"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="words_starting_with-132"><a href="#words_starting_with-132"><span class="linenos">132</span></a><span class="k">def</span> <span class="nf">words_starting_with</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
 </span><span id="words_starting_with-133"><a href="#words_starting_with-133"><span class="linenos">133</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="words_starting_with-134"><a href="#words_starting_with-134"><span class="linenos">134</span></a><span class="sd">    Return all words from the RAE dictionary that start with the given prefix.</span>
-</span><span id="words_starting_with-135"><a href="#words_starting_with-135"><span class="linenos">135</span></a>
-</span><span id="words_starting_with-136"><a href="#words_starting_with-136"><span class="linenos">136</span></a><span class="sd">    Args:</span>
-</span><span id="words_starting_with-137"><a href="#words_starting_with-137"><span class="linenos">137</span></a><span class="sd">        prefix (str): Prefix to search.</span>
-</span><span id="words_starting_with-138"><a href="#words_starting_with-138"><span class="linenos">138</span></a>
-</span><span id="words_starting_with-139"><a href="#words_starting_with-139"><span class="linenos">139</span></a><span class="sd">    Returns:</span>
-</span><span id="words_starting_with-140"><a href="#words_starting_with-140"><span class="linenos">140</span></a><span class="sd">        list[str] | None: List of words that start with the prefix,</span>
-</span><span id="words_starting_with-141"><a href="#words_starting_with-141"><span class="linenos">141</span></a><span class="sd">        or None if request fails.</span>
-</span><span id="words_starting_with-142"><a href="#words_starting_with-142"><span class="linenos">142</span></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="words_starting_with-143"><a href="#words_starting_with-143"><span class="linenos">143</span></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="words_starting_with-144"><a href="#words_starting_with-144"><span class="linenos">144</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">?m=31&#39;</span><span class="p">)</span>
-</span><span id="words_starting_with-145"><a href="#words_starting_with-145"><span class="linenos">145</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
-</span><span id="words_starting_with-146"><a href="#words_starting_with-146"><span class="linenos">146</span></a>        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="words_starting_with-134"><a href="#words_starting_with-134"><span class="linenos">134</span></a><span class="sd">    Devuelve todas las palabras del diccionario de la RAE que empiezan por el</span>
+</span><span id="words_starting_with-135"><a href="#words_starting_with-135"><span class="linenos">135</span></a><span class="sd">    prefijo proporcionado.</span>
+</span><span id="words_starting_with-136"><a href="#words_starting_with-136"><span class="linenos">136</span></a>
+</span><span id="words_starting_with-137"><a href="#words_starting_with-137"><span class="linenos">137</span></a><span class="sd">    Args:</span>
+</span><span id="words_starting_with-138"><a href="#words_starting_with-138"><span class="linenos">138</span></a><span class="sd">        prefix (str): Prefijo a buscar.</span>
+</span><span id="words_starting_with-139"><a href="#words_starting_with-139"><span class="linenos">139</span></a>
+</span><span id="words_starting_with-140"><a href="#words_starting_with-140"><span class="linenos">140</span></a><span class="sd">    Returns:</span>
+</span><span id="words_starting_with-141"><a href="#words_starting_with-141"><span class="linenos">141</span></a><span class="sd">        list[str] | None: Lista de palabras que empiezan por el prefijo o None</span>
+</span><span id="words_starting_with-142"><a href="#words_starting_with-142"><span class="linenos">142</span></a><span class="sd">        si la petición falla.</span>
+</span><span id="words_starting_with-143"><a href="#words_starting_with-143"><span class="linenos">143</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="words_starting_with-144"><a href="#words_starting_with-144"><span class="linenos">144</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="words_starting_with-145"><a href="#words_starting_with-145"><span class="linenos">145</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">?m=31&#39;</span><span class="p">)</span>
+</span><span id="words_starting_with-146"><a href="#words_starting_with-146"><span class="linenos">146</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="words_starting_with-147"><a href="#words_starting_with-147"><span class="linenos">147</span></a>        <span class="k">return</span> <span class="kc">None</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Return all words from the RAE dictionary that start with the given prefix.</p>
+            <div class="docstring"><p>Devuelve todas las palabras del diccionario de la RAE que empiezan por el
+prefijo proporcionado.</p>
 
 <p>Args:
-    prefix (str): Prefix to search.</p>
+    prefix (str): Prefijo a buscar.</p>
 
 <p>Returns:
-    list[str] | None: List of words that start with the prefix,
-    or None if request fails.</p>
+    list[str] | None: Lista de palabras que empiezan por el prefijo o None
+    si la petición falla.</p>
 </div>
 
 
@@ -518,32 +524,34 @@ Real Academia Española dictionary</p>
 
     </div>
     <a class="headerlink" href="#words_ending_with"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="words_ending_with-149"><a href="#words_ending_with-149"><span class="linenos">149</span></a><span class="k">def</span> <span class="nf">words_ending_with</span><span class="p">(</span><span class="n">suffix</span><span class="p">):</span>
-</span><span id="words_ending_with-150"><a href="#words_ending_with-150"><span class="linenos">150</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="words_ending_with-151"><a href="#words_ending_with-151"><span class="linenos">151</span></a><span class="sd">    Return all words from the RAE dictionary that end with the given suffix.</span>
-</span><span id="words_ending_with-152"><a href="#words_ending_with-152"><span class="linenos">152</span></a>
-</span><span id="words_ending_with-153"><a href="#words_ending_with-153"><span class="linenos">153</span></a><span class="sd">    Args:</span>
-</span><span id="words_ending_with-154"><a href="#words_ending_with-154"><span class="linenos">154</span></a><span class="sd">        suffix (str): Suffix to search.</span>
-</span><span id="words_ending_with-155"><a href="#words_ending_with-155"><span class="linenos">155</span></a>
-</span><span id="words_ending_with-156"><a href="#words_ending_with-156"><span class="linenos">156</span></a><span class="sd">    Returns:</span>
-</span><span id="words_ending_with-157"><a href="#words_ending_with-157"><span class="linenos">157</span></a><span class="sd">        list[str] | None: List of words that end with the suffix,</span>
-</span><span id="words_ending_with-158"><a href="#words_ending_with-158"><span class="linenos">158</span></a><span class="sd">        or None if request fails.</span>
-</span><span id="words_ending_with-159"><a href="#words_ending_with-159"><span class="linenos">159</span></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="words_ending_with-160"><a href="#words_ending_with-160"><span class="linenos">160</span></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="words_ending_with-161"><a href="#words_ending_with-161"><span class="linenos">161</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">suffix</span><span class="si">}</span><span class="s1">?m=32&#39;</span><span class="p">)</span>
-</span><span id="words_ending_with-162"><a href="#words_ending_with-162"><span class="linenos">162</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
-</span><span id="words_ending_with-163"><a href="#words_ending_with-163"><span class="linenos">163</span></a>        <span class="k">return</span> <span class="kc">None</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="words_ending_with-150"><a href="#words_ending_with-150"><span class="linenos">150</span></a><span class="k">def</span> <span class="nf">words_ending_with</span><span class="p">(</span><span class="n">suffix</span><span class="p">):</span>
+</span><span id="words_ending_with-151"><a href="#words_ending_with-151"><span class="linenos">151</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="words_ending_with-152"><a href="#words_ending_with-152"><span class="linenos">152</span></a><span class="sd">    Devuelve todas las palabras del diccionario de la RAE que terminan con el</span>
+</span><span id="words_ending_with-153"><a href="#words_ending_with-153"><span class="linenos">153</span></a><span class="sd">    sufijo proporcionado.</span>
+</span><span id="words_ending_with-154"><a href="#words_ending_with-154"><span class="linenos">154</span></a>
+</span><span id="words_ending_with-155"><a href="#words_ending_with-155"><span class="linenos">155</span></a><span class="sd">    Args:</span>
+</span><span id="words_ending_with-156"><a href="#words_ending_with-156"><span class="linenos">156</span></a><span class="sd">        suffix (str): Sufijo a buscar.</span>
+</span><span id="words_ending_with-157"><a href="#words_ending_with-157"><span class="linenos">157</span></a>
+</span><span id="words_ending_with-158"><a href="#words_ending_with-158"><span class="linenos">158</span></a><span class="sd">    Returns:</span>
+</span><span id="words_ending_with-159"><a href="#words_ending_with-159"><span class="linenos">159</span></a><span class="sd">        list[str] | None: Lista de palabras que terminan con el sufijo o None si</span>
+</span><span id="words_ending_with-160"><a href="#words_ending_with-160"><span class="linenos">160</span></a><span class="sd">        la petición falla.</span>
+</span><span id="words_ending_with-161"><a href="#words_ending_with-161"><span class="linenos">161</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="words_ending_with-162"><a href="#words_ending_with-162"><span class="linenos">162</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="words_ending_with-163"><a href="#words_ending_with-163"><span class="linenos">163</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">suffix</span><span class="si">}</span><span class="s1">?m=32&#39;</span><span class="p">)</span>
+</span><span id="words_ending_with-164"><a href="#words_ending_with-164"><span class="linenos">164</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="words_ending_with-165"><a href="#words_ending_with-165"><span class="linenos">165</span></a>        <span class="k">return</span> <span class="kc">None</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Return all words from the RAE dictionary that end with the given suffix.</p>
+            <div class="docstring"><p>Devuelve todas las palabras del diccionario de la RAE que terminan con el
+sufijo proporcionado.</p>
 
 <p>Args:
-    suffix (str): Suffix to search.</p>
+    suffix (str): Sufijo a buscar.</p>
 
 <p>Returns:
-    list[str] | None: List of words that end with the suffix,
-    or None if request fails.</p>
+    list[str] | None: Lista de palabras que terminan con el sufijo o None si
+    la petición falla.</p>
 </div>
 
 
@@ -559,32 +567,34 @@ Real Academia Española dictionary</p>
 
     </div>
     <a class="headerlink" href="#contains"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="contains-166"><a href="#contains-166"><span class="linenos">166</span></a><span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="n">substring</span><span class="p">):</span>
-</span><span id="contains-167"><a href="#contains-167"><span class="linenos">167</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="contains-168"><a href="#contains-168"><span class="linenos">168</span></a><span class="sd">    Return all words from the RAE dictionary that contain the given substring.</span>
-</span><span id="contains-169"><a href="#contains-169"><span class="linenos">169</span></a>
-</span><span id="contains-170"><a href="#contains-170"><span class="linenos">170</span></a><span class="sd">    Args:</span>
-</span><span id="contains-171"><a href="#contains-171"><span class="linenos">171</span></a><span class="sd">        substring (str): Substring to search.</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="contains-168"><a href="#contains-168"><span class="linenos">168</span></a><span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="n">substring</span><span class="p">):</span>
+</span><span id="contains-169"><a href="#contains-169"><span class="linenos">169</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="contains-170"><a href="#contains-170"><span class="linenos">170</span></a><span class="sd">    Devuelve todas las palabras del diccionario de la RAE que contienen la</span>
+</span><span id="contains-171"><a href="#contains-171"><span class="linenos">171</span></a><span class="sd">    subcadena proporcionada.</span>
 </span><span id="contains-172"><a href="#contains-172"><span class="linenos">172</span></a>
-</span><span id="contains-173"><a href="#contains-173"><span class="linenos">173</span></a><span class="sd">    Returns:</span>
-</span><span id="contains-174"><a href="#contains-174"><span class="linenos">174</span></a><span class="sd">        list[str] | None: List of words that contain the substring,</span>
-</span><span id="contains-175"><a href="#contains-175"><span class="linenos">175</span></a><span class="sd">        or None if request fails.</span>
-</span><span id="contains-176"><a href="#contains-176"><span class="linenos">176</span></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="contains-177"><a href="#contains-177"><span class="linenos">177</span></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="contains-178"><a href="#contains-178"><span class="linenos">178</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">substring</span><span class="si">}</span><span class="s1">?m=33&#39;</span><span class="p">)</span>
-</span><span id="contains-179"><a href="#contains-179"><span class="linenos">179</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
-</span><span id="contains-180"><a href="#contains-180"><span class="linenos">180</span></a>        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="contains-173"><a href="#contains-173"><span class="linenos">173</span></a><span class="sd">    Args:</span>
+</span><span id="contains-174"><a href="#contains-174"><span class="linenos">174</span></a><span class="sd">        substring (str): Subcadena a buscar.</span>
+</span><span id="contains-175"><a href="#contains-175"><span class="linenos">175</span></a>
+</span><span id="contains-176"><a href="#contains-176"><span class="linenos">176</span></a><span class="sd">    Returns:</span>
+</span><span id="contains-177"><a href="#contains-177"><span class="linenos">177</span></a><span class="sd">        list[str] | None: Lista de palabras que contienen la subcadena o None si</span>
+</span><span id="contains-178"><a href="#contains-178"><span class="linenos">178</span></a><span class="sd">        la petición falla.</span>
+</span><span id="contains-179"><a href="#contains-179"><span class="linenos">179</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="contains-180"><a href="#contains-180"><span class="linenos">180</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="contains-181"><a href="#contains-181"><span class="linenos">181</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">substring</span><span class="si">}</span><span class="s1">?m=33&#39;</span><span class="p">)</span>
+</span><span id="contains-182"><a href="#contains-182"><span class="linenos">182</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="contains-183"><a href="#contains-183"><span class="linenos">183</span></a>        <span class="k">return</span> <span class="kc">None</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Return all words from the RAE dictionary that contain the given substring.</p>
+            <div class="docstring"><p>Devuelve todas las palabras del diccionario de la RAE que contienen la
+subcadena proporcionada.</p>
 
 <p>Args:
-    substring (str): Substring to search.</p>
+    substring (str): Subcadena a buscar.</p>
 
 <p>Returns:
-    list[str] | None: List of words that contain the substring,
-    or None if request fails.</p>
+    list[str] | None: Lista de palabras que contienen la subcadena o None si
+    la petición falla.</p>
 </div>
 
 
@@ -600,32 +610,34 @@ Real Academia Española dictionary</p>
 
     </div>
     <a class="headerlink" href="#anagrams"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="anagrams-183"><a href="#anagrams-183"><span class="linenos">183</span></a><span class="k">def</span> <span class="nf">anagrams</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
-</span><span id="anagrams-184"><a href="#anagrams-184"><span class="linenos">184</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="anagrams-185"><a href="#anagrams-185"><span class="linenos">185</span></a><span class="sd">    Return all anagrams of the given word present in the RAE dictionary.</span>
-</span><span id="anagrams-186"><a href="#anagrams-186"><span class="linenos">186</span></a>
-</span><span id="anagrams-187"><a href="#anagrams-187"><span class="linenos">187</span></a><span class="sd">    Args:</span>
-</span><span id="anagrams-188"><a href="#anagrams-188"><span class="linenos">188</span></a><span class="sd">        word (str): Word to search anagrams for.</span>
-</span><span id="anagrams-189"><a href="#anagrams-189"><span class="linenos">189</span></a>
-</span><span id="anagrams-190"><a href="#anagrams-190"><span class="linenos">190</span></a><span class="sd">    Returns:</span>
-</span><span id="anagrams-191"><a href="#anagrams-191"><span class="linenos">191</span></a><span class="sd">        list[str] | None: List of anagrams found in the dictionary,</span>
-</span><span id="anagrams-192"><a href="#anagrams-192"><span class="linenos">192</span></a><span class="sd">        or None if request fails.</span>
-</span><span id="anagrams-193"><a href="#anagrams-193"><span class="linenos">193</span></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="anagrams-194"><a href="#anagrams-194"><span class="linenos">194</span></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="anagrams-195"><a href="#anagrams-195"><span class="linenos">195</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s1">?m=anagram&#39;</span><span class="p">)</span>
-</span><span id="anagrams-196"><a href="#anagrams-196"><span class="linenos">196</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
-</span><span id="anagrams-197"><a href="#anagrams-197"><span class="linenos">197</span></a>        <span class="k">return</span> <span class="kc">None</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="anagrams-186"><a href="#anagrams-186"><span class="linenos">186</span></a><span class="k">def</span> <span class="nf">anagrams</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+</span><span id="anagrams-187"><a href="#anagrams-187"><span class="linenos">187</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="anagrams-188"><a href="#anagrams-188"><span class="linenos">188</span></a><span class="sd">    Devuelve todos los anagramas de la palabra dada presentes en el diccionario</span>
+</span><span id="anagrams-189"><a href="#anagrams-189"><span class="linenos">189</span></a><span class="sd">    de la RAE.</span>
+</span><span id="anagrams-190"><a href="#anagrams-190"><span class="linenos">190</span></a>
+</span><span id="anagrams-191"><a href="#anagrams-191"><span class="linenos">191</span></a><span class="sd">    Args:</span>
+</span><span id="anagrams-192"><a href="#anagrams-192"><span class="linenos">192</span></a><span class="sd">        word (str): Palabra para la que buscar anagramas.</span>
+</span><span id="anagrams-193"><a href="#anagrams-193"><span class="linenos">193</span></a>
+</span><span id="anagrams-194"><a href="#anagrams-194"><span class="linenos">194</span></a><span class="sd">    Returns:</span>
+</span><span id="anagrams-195"><a href="#anagrams-195"><span class="linenos">195</span></a><span class="sd">        list[str] | None: Lista de anagramas encontrados en el diccionario o</span>
+</span><span id="anagrams-196"><a href="#anagrams-196"><span class="linenos">196</span></a><span class="sd">        None si la petición falla.</span>
+</span><span id="anagrams-197"><a href="#anagrams-197"><span class="linenos">197</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="anagrams-198"><a href="#anagrams-198"><span class="linenos">198</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="anagrams-199"><a href="#anagrams-199"><span class="linenos">199</span></a>        <span class="k">return</span> <span class="n">_get_words</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s1">?m=anagram&#39;</span><span class="p">)</span>
+</span><span id="anagrams-200"><a href="#anagrams-200"><span class="linenos">200</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="anagrams-201"><a href="#anagrams-201"><span class="linenos">201</span></a>        <span class="k">return</span> <span class="kc">None</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Return all anagrams of the given word present in the RAE dictionary.</p>
+            <div class="docstring"><p>Devuelve todos los anagramas de la palabra dada presentes en el diccionario
+de la RAE.</p>
 
 <p>Args:
-    word (str): Word to search anagrams for.</p>
+    word (str): Palabra para la que buscar anagramas.</p>
 
 <p>Returns:
-    list[str] | None: List of anagrams found in the dictionary,
-    or None if request fails.</p>
+    list[str] | None: Lista de anagramas encontrados en el diccionario o
+    None si la petición falla.</p>
 </div>
 
 
@@ -641,55 +653,55 @@ Real Academia Española dictionary</p>
 
     </div>
     <a class="headerlink" href="#abbreviations_and_symbols"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="abbreviations_and_symbols-200"><a href="#abbreviations_and_symbols-200"><span class="linenos">200</span></a><span class="k">def</span> <span class="nf">abbreviations_and_symbols</span><span class="p">():</span>
-</span><span id="abbreviations_and_symbols-201"><a href="#abbreviations_and_symbols-201"><span class="linenos">201</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="abbreviations_and_symbols-202"><a href="#abbreviations_and_symbols-202"><span class="linenos">202</span></a><span class="sd">    Retrieve abbreviations and symbols metadata from RAE.</span>
-</span><span id="abbreviations_and_symbols-203"><a href="#abbreviations_and_symbols-203"><span class="linenos">203</span></a>
-</span><span id="abbreviations_and_symbols-204"><a href="#abbreviations_and_symbols-204"><span class="linenos">204</span></a><span class="sd">    Returns:</span>
-</span><span id="abbreviations_and_symbols-205"><a href="#abbreviations_and_symbols-205"><span class="linenos">205</span></a><span class="sd">        dict | None: Dictionary with notes, abbreviations and symbols,</span>
-</span><span id="abbreviations_and_symbols-206"><a href="#abbreviations_and_symbols-206"><span class="linenos">206</span></a><span class="sd">        or None if request fails.</span>
-</span><span id="abbreviations_and_symbols-207"><a href="#abbreviations_and_symbols-207"><span class="linenos">207</span></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="abbreviations_and_symbols-208"><a href="#abbreviations_and_symbols-208"><span class="linenos">208</span></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="abbreviations_and_symbols-209"><a href="#abbreviations_and_symbols-209"><span class="linenos">209</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/contenido/abreviaturas-y-signos-empleados&#39;</span><span class="p">)</span>
-</span><span id="abbreviations_and_symbols-210"><a href="#abbreviations_and_symbols-210"><span class="linenos">210</span></a>
-</span><span id="abbreviations_and_symbols-211"><a href="#abbreviations_and_symbols-211"><span class="linenos">211</span></a>        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="abbreviations_and_symbols-212"><a href="#abbreviations_and_symbols-212"><span class="linenos">212</span></a>            <span class="s1">&#39;notes&#39;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="abbreviations_and_symbols-213"><a href="#abbreviations_and_symbols-213"><span class="linenos">213</span></a>            <span class="s1">&#39;abbreviations&#39;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span id="abbreviations_and_symbols-214"><a href="#abbreviations_and_symbols-214"><span class="linenos">214</span></a>            <span class="s1">&#39;symbols&#39;</span><span class="p">:</span> <span class="p">[]</span>
-</span><span id="abbreviations_and_symbols-215"><a href="#abbreviations_and_symbols-215"><span class="linenos">215</span></a>        <span class="p">}</span>
-</span><span id="abbreviations_and_symbols-216"><a href="#abbreviations_and_symbols-216"><span class="linenos">216</span></a>
-</span><span id="abbreviations_and_symbols-217"><a href="#abbreviations_and_symbols-217"><span class="linenos">217</span></a>        <span class="n">ul</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;content&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">)</span>
-</span><span id="abbreviations_and_symbols-218"><a href="#abbreviations_and_symbols-218"><span class="linenos">218</span></a>        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;notes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="abbreviations_and_symbols-219"><a href="#abbreviations_and_symbols-219"><span class="linenos">219</span></a>            <span class="n">_clean_text</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
-</span><span id="abbreviations_and_symbols-220"><a href="#abbreviations_and_symbols-220"><span class="linenos">220</span></a>            <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">ul</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="abbreviations_and_symbols-221"><a href="#abbreviations_and_symbols-221"><span class="linenos">221</span></a>        <span class="p">]</span>
-</span><span id="abbreviations_and_symbols-222"><a href="#abbreviations_and_symbols-222"><span class="linenos">222</span></a>
-</span><span id="abbreviations_and_symbols-223"><a href="#abbreviations_and_symbols-223"><span class="linenos">223</span></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;abbreviation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
-</span><span id="abbreviations_and_symbols-224"><a href="#abbreviations_and_symbols-224"><span class="linenos">224</span></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
-</span><span id="abbreviations_and_symbols-225"><a href="#abbreviations_and_symbols-225"><span class="linenos">225</span></a>            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
-</span><span id="abbreviations_and_symbols-226"><a href="#abbreviations_and_symbols-226"><span class="linenos">226</span></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="abbreviations_and_symbols-227"><a href="#abbreviations_and_symbols-227"><span class="linenos">227</span></a>            <span class="n">value</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</span><span id="abbreviations_and_symbols-228"><a href="#abbreviations_and_symbols-228"><span class="linenos">228</span></a>            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;abbreviations&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
-</span><span id="abbreviations_and_symbols-229"><a href="#abbreviations_and_symbols-229"><span class="linenos">229</span></a>
-</span><span id="abbreviations_and_symbols-230"><a href="#abbreviations_and_symbols-230"><span class="linenos">230</span></a>        <span class="n">symbol_div</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;symbol&#39;</span><span class="p">)</span>
-</span><span id="abbreviations_and_symbols-231"><a href="#abbreviations_and_symbols-231"><span class="linenos">231</span></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">symbol_div</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
-</span><span id="abbreviations_and_symbols-232"><a href="#abbreviations_and_symbols-232"><span class="linenos">232</span></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
-</span><span id="abbreviations_and_symbols-233"><a href="#abbreviations_and_symbols-233"><span class="linenos">233</span></a>            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
-</span><span id="abbreviations_and_symbols-234"><a href="#abbreviations_and_symbols-234"><span class="linenos">234</span></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="abbreviations_and_symbols-235"><a href="#abbreviations_and_symbols-235"><span class="linenos">235</span></a>            <span class="n">value</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</span><span id="abbreviations_and_symbols-236"><a href="#abbreviations_and_symbols-236"><span class="linenos">236</span></a>            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;symbols&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
-</span><span id="abbreviations_and_symbols-237"><a href="#abbreviations_and_symbols-237"><span class="linenos">237</span></a>
-</span><span id="abbreviations_and_symbols-238"><a href="#abbreviations_and_symbols-238"><span class="linenos">238</span></a>        <span class="k">return</span> <span class="n">data</span>
-</span><span id="abbreviations_and_symbols-239"><a href="#abbreviations_and_symbols-239"><span class="linenos">239</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
-</span><span id="abbreviations_and_symbols-240"><a href="#abbreviations_and_symbols-240"><span class="linenos">240</span></a>        <span class="k">return</span> <span class="kc">None</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="abbreviations_and_symbols-204"><a href="#abbreviations_and_symbols-204"><span class="linenos">204</span></a><span class="k">def</span> <span class="nf">abbreviations_and_symbols</span><span class="p">():</span>
+</span><span id="abbreviations_and_symbols-205"><a href="#abbreviations_and_symbols-205"><span class="linenos">205</span></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="abbreviations_and_symbols-206"><a href="#abbreviations_and_symbols-206"><span class="linenos">206</span></a><span class="sd">    Obtiene abreviaturas y símbolos de la RAE.</span>
+</span><span id="abbreviations_and_symbols-207"><a href="#abbreviations_and_symbols-207"><span class="linenos">207</span></a>
+</span><span id="abbreviations_and_symbols-208"><a href="#abbreviations_and_symbols-208"><span class="linenos">208</span></a><span class="sd">    Returns:</span>
+</span><span id="abbreviations_and_symbols-209"><a href="#abbreviations_and_symbols-209"><span class="linenos">209</span></a><span class="sd">        dict | None: Diccionario con notas, abreviaturas y símbolos o None si la</span>
+</span><span id="abbreviations_and_symbols-210"><a href="#abbreviations_and_symbols-210"><span class="linenos">210</span></a><span class="sd">        petición falla.</span>
+</span><span id="abbreviations_and_symbols-211"><a href="#abbreviations_and_symbols-211"><span class="linenos">211</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="abbreviations_and_symbols-212"><a href="#abbreviations_and_symbols-212"><span class="linenos">212</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="abbreviations_and_symbols-213"><a href="#abbreviations_and_symbols-213"><span class="linenos">213</span></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">_fetch_soup</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s1">/contenido/abreviaturas-y-signos-empleados&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-214"><a href="#abbreviations_and_symbols-214"><span class="linenos">214</span></a>
+</span><span id="abbreviations_and_symbols-215"><a href="#abbreviations_and_symbols-215"><span class="linenos">215</span></a>        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="abbreviations_and_symbols-216"><a href="#abbreviations_and_symbols-216"><span class="linenos">216</span></a>            <span class="s1">&#39;notes&#39;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="abbreviations_and_symbols-217"><a href="#abbreviations_and_symbols-217"><span class="linenos">217</span></a>            <span class="s1">&#39;abbreviations&#39;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span id="abbreviations_and_symbols-218"><a href="#abbreviations_and_symbols-218"><span class="linenos">218</span></a>            <span class="s1">&#39;symbols&#39;</span><span class="p">:</span> <span class="p">[]</span>
+</span><span id="abbreviations_and_symbols-219"><a href="#abbreviations_and_symbols-219"><span class="linenos">219</span></a>        <span class="p">}</span>
+</span><span id="abbreviations_and_symbols-220"><a href="#abbreviations_and_symbols-220"><span class="linenos">220</span></a>
+</span><span id="abbreviations_and_symbols-221"><a href="#abbreviations_and_symbols-221"><span class="linenos">221</span></a>        <span class="n">ul</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;content&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-222"><a href="#abbreviations_and_symbols-222"><span class="linenos">222</span></a>        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;notes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="abbreviations_and_symbols-223"><a href="#abbreviations_and_symbols-223"><span class="linenos">223</span></a>            <span class="n">_clean_text</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-224"><a href="#abbreviations_and_symbols-224"><span class="linenos">224</span></a>            <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">ul</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-225"><a href="#abbreviations_and_symbols-225"><span class="linenos">225</span></a>        <span class="p">]</span>
+</span><span id="abbreviations_and_symbols-226"><a href="#abbreviations_and_symbols-226"><span class="linenos">226</span></a>
+</span><span id="abbreviations_and_symbols-227"><a href="#abbreviations_and_symbols-227"><span class="linenos">227</span></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;abbreviation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-228"><a href="#abbreviations_and_symbols-228"><span class="linenos">228</span></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
+</span><span id="abbreviations_and_symbols-229"><a href="#abbreviations_and_symbols-229"><span class="linenos">229</span></a>            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-230"><a href="#abbreviations_and_symbols-230"><span class="linenos">230</span></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="abbreviations_and_symbols-231"><a href="#abbreviations_and_symbols-231"><span class="linenos">231</span></a>            <span class="n">value</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="abbreviations_and_symbols-232"><a href="#abbreviations_and_symbols-232"><span class="linenos">232</span></a>            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;abbreviations&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+</span><span id="abbreviations_and_symbols-233"><a href="#abbreviations_and_symbols-233"><span class="linenos">233</span></a>
+</span><span id="abbreviations_and_symbols-234"><a href="#abbreviations_and_symbols-234"><span class="linenos">234</span></a>        <span class="n">symbol_div</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;symbol&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-235"><a href="#abbreviations_and_symbols-235"><span class="linenos">235</span></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">symbol_div</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-236"><a href="#abbreviations_and_symbols-236"><span class="linenos">236</span></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
+</span><span id="abbreviations_and_symbols-237"><a href="#abbreviations_and_symbols-237"><span class="linenos">237</span></a>            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
+</span><span id="abbreviations_and_symbols-238"><a href="#abbreviations_and_symbols-238"><span class="linenos">238</span></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="abbreviations_and_symbols-239"><a href="#abbreviations_and_symbols-239"><span class="linenos">239</span></a>            <span class="n">value</span> <span class="o">=</span> <span class="n">_clean_text</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="abbreviations_and_symbols-240"><a href="#abbreviations_and_symbols-240"><span class="linenos">240</span></a>            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;symbols&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+</span><span id="abbreviations_and_symbols-241"><a href="#abbreviations_and_symbols-241"><span class="linenos">241</span></a>
+</span><span id="abbreviations_and_symbols-242"><a href="#abbreviations_and_symbols-242"><span class="linenos">242</span></a>        <span class="k">return</span> <span class="n">data</span>
+</span><span id="abbreviations_and_symbols-243"><a href="#abbreviations_and_symbols-243"><span class="linenos">243</span></a>    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">:</span>
+</span><span id="abbreviations_and_symbols-244"><a href="#abbreviations_and_symbols-244"><span class="linenos">244</span></a>        <span class="k">return</span> <span class="kc">None</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Retrieve abbreviations and symbols metadata from RAE.</p>
+            <div class="docstring"><p>Obtiene abreviaturas y símbolos de la RAE.</p>
 
 <p>Returns:
-    dict | None: Dictionary with notes, abbreviations and symbols,
-    or None if request fails.</p>
+    dict | None: Diccionario con notas, abreviaturas y símbolos o None si la
+    petición falla.</p>
 </div>
 
 

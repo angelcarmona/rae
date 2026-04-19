@@ -11,3 +11,6 @@ import rae
 res = rae.search_by_word('pitón')
 print(res)
 ```
+
+## Contacto, sugerencias, donaciones, etc.
+[https://angelcarmona.com](https://angelcarmona.com)

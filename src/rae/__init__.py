@@ -1,8 +1,8 @@
 '''
-RAE dictionary client
+Cliente para el diccionario de la RAE (https://www.rae.es)
 
-Provides utilities to fetch and parse entries from the
-Real Academia Española dictionary
+Proporciona funciones para consultar entradas del diccionario de la
+Real Academia Española
 '''
 
 import requests
@@ -77,11 +77,11 @@ def _get_words(url):
 
 def word_of_the_day():
     '''
-    Retrieve today's word from RAE and return its parsed entries.
+    Devuelve la palabra del día en https://www.rae.es
 
     Returns:
-        list[dict] | None: Parsed dictionary entries for the word of the day,
-        or None if request fails.
+        list[dict] | None: Entrada del diccionario para la palabra del día o
+        None si la petición falla.
     '''
     try:
         soup = _fetch_soup(BASE_URL)
@@ -93,14 +93,14 @@ def word_of_the_day():
 
 def search_by_word(word):
     '''
-    Search a word in the RAE dictionary.
+    Busca una palabra en el diccionario de la RAE.
 
     Args:
-        word (str): Word to search.
+        word (str): Palabra a buscar.
 
     Returns:
-        list[dict] | None: List of articles with title, intro and definitions,
-        or None if request fails.
+        list[dict] | None: Lista de artículos con título, introducción y
+        definiciones o None si la petición falla.
     '''
     try:
         soup = _fetch_soup(f'{BASE_URL}/{word}')
@@ -115,11 +115,11 @@ def search_by_word(word):
 
 def random_word():
     '''
-    Retrieve a random word from RAE and return its parsed entries.
+    Obtiene una palabra aleatoria de la RAE.
 
     Returns:
-        list[dict] | None: Parsed dictionary entries for a random word,
-        or None if request fails.
+        list[dict] | None: Entrada del diccionario para una palabra aleatoria o
+        None si la petición falla.
     '''
     try:
         soup = _fetch_soup(f'{BASE_URL}/?m=random')
@@ -130,14 +130,15 @@ def random_word():
 
 def words_starting_with(prefix):
     '''
-    Return all words from the RAE dictionary that start with the given prefix.
+    Devuelve todas las palabras del diccionario de la RAE que empiezan por el
+    prefijo proporcionado.
 
     Args:
-        prefix (str): Prefix to search.
+        prefix (str): Prefijo a buscar.
 
     Returns:
-        list[str] | None: List of words that start with the prefix,
-        or None if request fails.
+        list[str] | None: Lista de palabras que empiezan por el prefijo o None
+        si la petición falla.
     '''
     try:
         return _get_words(f'{BASE_URL}/{prefix}?m=31')
@@ -147,14 +148,15 @@ def words_starting_with(prefix):
 
 def words_ending_with(suffix):
     '''
-    Return all words from the RAE dictionary that end with the given suffix.
+    Devuelve todas las palabras del diccionario de la RAE que terminan con el
+    sufijo proporcionado.
 
     Args:
-        suffix (str): Suffix to search.
+        suffix (str): Sufijo a buscar.
 
     Returns:
-        list[str] | None: List of words that end with the suffix,
-        or None if request fails.
+        list[str] | None: Lista de palabras que terminan con el sufijo o None si
+        la petición falla.
     '''
     try:
         return _get_words(f'{BASE_URL}/{suffix}?m=32')
@@ -164,14 +166,15 @@ def words_ending_with(suffix):
 
 def contains(substring):
     '''
-    Return all words from the RAE dictionary that contain the given substring.
+    Devuelve todas las palabras del diccionario de la RAE que contienen la
+    subcadena proporcionada.
 
     Args:
-        substring (str): Substring to search.
+        substring (str): Subcadena a buscar.
 
     Returns:
-        list[str] | None: List of words that contain the substring,
-        or None if request fails.
+        list[str] | None: Lista de palabras que contienen la subcadena o None si
+        la petición falla.
     '''
     try:
         return _get_words(f'{BASE_URL}/{substring}?m=33')
@@ -181,14 +184,15 @@ def contains(substring):
 
 def anagrams(word):
     '''
-    Return all anagrams of the given word present in the RAE dictionary.
+    Devuelve todos los anagramas de la palabra dada presentes en el diccionario
+    de la RAE.
 
     Args:
-        word (str): Word to search anagrams for.
+        word (str): Palabra para la que buscar anagramas.
 
     Returns:
-        list[str] | None: List of anagrams found in the dictionary,
-        or None if request fails.
+        list[str] | None: Lista de anagramas encontrados en el diccionario o
+        None si la petición falla.
     '''
     try:
         return _get_words(f'{BASE_URL}/{word}?m=anagram')
@@ -198,11 +202,11 @@ def anagrams(word):
 
 def abbreviations_and_symbols():
     '''
-    Retrieve abbreviations and symbols metadata from RAE.
+    Obtiene abreviaturas y símbolos de la RAE.
 
     Returns:
-        dict | None: Dictionary with notes, abbreviations and symbols,
-        or None if request fails.
+        dict | None: Diccionario con notas, abreviaturas y símbolos o None si la
+        petición falla.
     '''
     try:
         soup = _fetch_soup(f'{BASE_URL}/contenido/abreviaturas-y-signos-empleados')
